@@ -20,36 +20,39 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rG-Hb-PrL">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="NU.nl/internet" id="pe2-0d-xaf"/>
+                                    <navigationItem title="iCulture" id="pe2-0d-xaf"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-RR-oW6">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="J2I-4n-9rL" detailTextLabel="Hxh-p6-XKC" style="IBUITableViewCellStyleSubtitle" id="gQd-Rh-Lf0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="J2I-4n-9rL" detailTextLabel="I9b-xV-ujj" style="IBUITableViewCellStyleSubtitle" id="gQd-Rh-Lf0">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gQd-Rh-Lf0" id="mdc-Il-F2l">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J2I-4n-9rL">
-                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J2I-4n-9rL">
+                                                    <rect key="frame" x="15" y="7" width="28" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hxh-p6-XKC">
-                                                    <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I9b-xV-ujj">
+                                                    <rect key="frame" x="15" y="23" width="31" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="K9E-dv-bas" kind="showDetail" identifier="goToNewsItem" id="zT6-zz-BlN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -64,6 +67,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="884.5" y="453.5"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="yqC-ot-fCe">
+            <objects>
+                <viewController id="K9E-dv-bas" customClass="WebViewController" customModule="RSSreader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7P1-2Z-nqI"/>
+                        <viewControllerLayoutGuide type="bottom" id="je8-y5-oBs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="plu-uu-n7Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cse-OT-03v">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="iCulture" id="ign-rg-Uvf">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="E1V-Im-V8Z"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C24-ff-FnD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="603" id="jFs-HZ-e8h"/>
+                                </constraints>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C24-ff-FnD" firstAttribute="trailing" secondItem="cse-OT-03v" secondAttribute="trailing" id="0Yj-7W-C2J"/>
+                            <constraint firstItem="C24-ff-FnD" firstAttribute="top" secondItem="cse-OT-03v" secondAttribute="bottom" id="QfU-OQ-FKD"/>
+                            <constraint firstItem="C24-ff-FnD" firstAttribute="bottom" secondItem="je8-y5-oBs" secondAttribute="top" id="Tib-dv-TZf"/>
+                            <constraint firstItem="C24-ff-FnD" firstAttribute="leading" secondItem="cse-OT-03v" secondAttribute="leading" id="V0i-h2-rpS"/>
+                            <constraint firstAttribute="trailing" secondItem="C24-ff-FnD" secondAttribute="trailing" id="pMZ-3t-2fu"/>
+                            <constraint firstItem="C24-ff-FnD" firstAttribute="leading" secondItem="plu-uu-n7Y" secondAttribute="leading" id="uZm-k6-9ze"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="webView" destination="C24-ff-FnD" id="c7O-Lr-Vcn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KWu-QN-nck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1305.5" y="459.5"/>
         </scene>
     </scenes>
 </document>

@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         
-        let url = "http://www.nu.nl/rss/Internet"
+        let url = "http://www.iculture.nl/feed/"
         Alamofire.request(.GET, url).responseRSS() { (response) -> Void in
             if let feed: RSSFeed = response.result.value {
                 self.newsItems = feed.items
@@ -43,24 +43,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let backgroundQueue = NSOperationQueue()
         backgroundQueue.addOperationWithBlock(){
-            func md5(string string: String) -> String {
-                var digest = [UInt8](count: Int(CC_MD5_DIGEST_LENGTH), repeatedValue: 0)
-                if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
-                    CC_MD5(data.bytes, CC_LONG(data.length), &digest)
-                }
-                
-                var digestHex = ""
-                for index in 0..<Int(CC_MD5_DIGEST_LENGTH) {
-                    digestHex += String(format: "%02x", digest[index])
-                }
-                
-                return digestHex
-            }
-            
-            for item in self.newsItems{
-                //self.hashedNewsItems[item.title!] = md5(string: item.title!)
-                self.hashedNewsItems.setObject(md5(string: item.title!), forKey: item.title!)
-            }
             self.tableView!.reloadData()
         }
     }
@@ -73,26 +55,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         let tag = newsItems[indexPath.row]
         cell.textLabel?.text = tag.title
-        cell.detailTextLabel?.text = "Proccessing..."
-        if hashedNewsItems.objectForKey(tag.title!) != nil{
-            //cell.detailTextLabel?.text = hashedNewsItems[tag.title!]
-            cell.detailTextLabel?.text = hashedNewsItems.objectForKey(tag.title!)as? String
-        }else{
-            cell.detailTextLabel?.text = "Loading..."
-        }
+        
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "d/m/yyyy hh:mm" //format style. Browse online to get a format that fits your needs.
+        let dateString = dateFormatter.stringFromDate(tag.pubDate!)
+        cell.detailTextLabel?.text = dateString
+        
         return cell
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //let tag = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text!
-        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        //performSegueWithIdentifier("backToMain", sender: nil)
+        WebViewController.setTheLink(string: newsItems[indexPath.row].link!)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        performSegueWithIdentifier("goToNewsItem", sender: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // the second screen. I select the icon of View Controller and Attributes Inspector > Class and Storyboard ID is: DetallViewController
+        //var secondScene = segue.destinationViewController as! WebViewController
+        //let indexPath = sender as! NSIndexPath
+        //let selected = newsItems[indexPath.row]
     }
 
 }

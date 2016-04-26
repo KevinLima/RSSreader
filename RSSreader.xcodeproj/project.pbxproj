@@ -14,6 +14,7 @@
 		7E28ECE11CC9204B005124F7 /* RSSreader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E28ECDF1CC9204B005124F7 /* RSSreader.xcdatamodeld */; };
 		7E28ECE31CC9204B005124F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E28ECE21CC9204B005124F7 /* Assets.xcassets */; };
 		7E28ECE61CC9204B005124F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E28ECE41CC9204B005124F7 /* LaunchScreen.storyboard */; };
+		7ED0C3E41CCA773C00FD35A6 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED0C3E31CCA773C00FD35A6 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		7E28ECE51CC9204B005124F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E28ECE71CC9204B005124F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ED0C3E21CCA2A4400FD35A6 /* RSSreader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSSreader-Bridging-Header.h"; sourceTree = "<group>"; };
+		7ED0C3E31CCA773C00FD35A6 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		82F72199181D27783444201B /* Pods-RSSreader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSreader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSSreader/Pods-RSSreader.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F0FC92DFFC523E06ACABBA /* Pods_RSSreader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RSSreader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				7E28ECD81CC9204B005124F7 /* AppDelegate.swift */,
 				7E28ECDA1CC9204B005124F7 /* ViewController.swift */,
 				7E28ECDC1CC9204B005124F7 /* Main.storyboard */,
+				7ED0C3E31CCA773C00FD35A6 /* WebViewController.swift */,
 				7E28ECE21CC9204B005124F7 /* Assets.xcassets */,
 				7E28ECE41CC9204B005124F7 /* LaunchScreen.storyboard */,
 				7E28ECE71CC9204B005124F7 /* Info.plist */,
@@ -218,6 +221,7 @@
 				7E28ECE11CC9204B005124F7 /* RSSreader.xcdatamodeld in Sources */,
 				7E28ECDB1CC9204B005124F7 /* ViewController.swift in Sources */,
 				7E28ECD91CC9204B005124F7 /* AppDelegate.swift in Sources */,
+				7ED0C3E41CCA773C00FD35A6 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
